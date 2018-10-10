@@ -1,6 +1,5 @@
 import csv
 import sys 
-
 # arg
 path_filename = sys.argv[1] 
 list_filename = sys.argv[2]
