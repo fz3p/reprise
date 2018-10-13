@@ -1,12 +1,14 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 import os, os.path
+from header_to_csv import header_to_csv
+
 
 def set_filename():
     file = askopenfilename()
-    file = file.name
     filename.set(file)
-    print(filename)
+    header_to_csv(filename)
+
 
 
 # windows
@@ -25,6 +27,7 @@ result = Label(title, text="SEE RESULTS")
 result.pack()
 
 # openButton
+FILETYPES = [ ("text files", "*.csv") ]
 openButton = Button(windows, text='open', command=set_filename)
 openButton.pack()
 
