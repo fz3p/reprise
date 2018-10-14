@@ -8,9 +8,11 @@ def set_filename():
     file = askopenfilename()
     filename.set(file)
     array = header_to_csv(filename)
-
+    results = Text(title)
     for line in array:
-        Label(title, text=line).pack()
+        results.insert(INSERT, line+'\n')
+        results.pack()
+    
         
 # windows
 windows = Tk()
@@ -38,7 +40,4 @@ title.pack(fill="both", expand="yes", padx=10, pady=10)
 
 
 windows.mainloop
-
-
-
 
