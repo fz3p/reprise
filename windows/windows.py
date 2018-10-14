@@ -9,15 +9,13 @@ def set_filename():
     filename.set(file)
     array = header_to_csv(filename)
 
-    print(array)
-    for line in enumerate(array):
-        print(line)
+    for line in array:
         Label(title, text=line).pack()
         
 # windows
 windows = Tk()
-windows.geometry("400x500+300+0")
-windows.resizable(width=False,height=True)
+windows.title("header of csv")
+windows.geometry("300x500+300+0")
 filename = StringVar(windows)
 label = Label(windows, text=filename)
 label.pack
