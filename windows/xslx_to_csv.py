@@ -11,7 +11,7 @@ def csv_from_excel(file, your_csv_file_name):
     your_csv_file = open(your_csv_file_name, 'w')
     wr = csv.writer(your_csv_file, delimiter=';')
     for row in sh.rows:
-        liste=[]
+        liste= []
         for cell in row:     
             liste.append(cell.value)
         wr.writerow(liste)

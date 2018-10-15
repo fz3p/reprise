@@ -9,9 +9,11 @@ def set_filename():
     filename.set(file)
     array = header_to_csv(filename)
     results = Text(title)
-    for line in array:
-        results.insert(INSERT, line+'\n')
+    counter = 0
+    for line in array[0]:
+        results.insert(INSERT, line + " ex : " + array[1][counter]+'\n')
         results.pack()
+        counter = counter + 1
     
         
 # windows
@@ -40,4 +42,3 @@ title.pack(fill="both", expand="yes", padx=10, pady=10)
 
 
 windows.mainloop
-
