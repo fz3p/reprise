@@ -18,7 +18,7 @@ def set_filename():
         
 # windows
 windows = Tk()
-windows.title("header of csv")
+windows.title("Toolbox csv")
 windows.geometry("300x500+300+0")
 filename = StringVar(windows)
 label = Label(windows, text=filename)
