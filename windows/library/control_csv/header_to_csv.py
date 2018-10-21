@@ -29,6 +29,7 @@ def header_to_csv(path_filename):
     print(array)
     return array
 
+
 def alphabet_letter(number):
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     if number < 25:
@@ -40,4 +41,7 @@ def alphabet_letter(number):
     else:
         text = "wrong data"
         return text
+
+if __name__ == "__main__":
+    header_to_csv("test.csv")
 
