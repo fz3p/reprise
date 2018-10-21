@@ -1,6 +1,6 @@
 import csv
 import sys
-import re
+from re import search, sub
 
 def header_to_csv(path_filename):
     # print("load header_to_csv")
@@ -26,7 +26,10 @@ def header_to_csv(path_filename):
                     column_number = column_number + 1
             line_number = line_number + 1
     array = [array_first, array_two]
-    print(array)
+
+    if __name__ == "__main__":
+        print(array)
+
     return array
 
 
@@ -42,6 +45,5 @@ def alphabet_letter(number):
         text = "wrong data"
         return text
 
-if __name__ == "__main__":
-    header_to_csv("test.csv")
+
 

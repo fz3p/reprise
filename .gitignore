@@ -1,7 +1,5 @@
 
-out\.csv
-test\.csv
-list\.md
+files_for_test/
 \.idea/
 
 # Byte-compiled / optimized / DLL files
