@@ -2,7 +2,7 @@ import csv
 import sys
 from re import search, sub
 
-def header_to_csv(path_filename):
+def header(path_filename):
     # print("load header_to_csv")
     # print(path_filename.get())
 
@@ -32,6 +32,27 @@ def header_to_csv(path_filename):
 
     return array
 
+
+def analyse(path_filename):
+    # just first line 
+    line_number= 0
+    array = []
+    array_first = []
+    with open(path_filename.get()) as csvfile:
+        line = csv.reader(csvfile, delimiter=';')
+        for row in line:
+            column_number = 0
+            if line_number != 0:
+                for cell in row:
+                    array_first.append(cell)
+                    column_number = column_number + 1
+            line_number = line_number + 1
+    array = [array_first]
+
+    if __name__ == "__main__":
+        print(array)
+
+    return array
 
 def alphabet_letter(number):
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
