@@ -16,16 +16,15 @@ def set_filename():
         results.insert(INSERT, line + " ex : " + array[1][counter]+'\n')
         results.pack()
         counter = counter + 1
-
+    
     # audit
-    array = analyse(filename)
+    audit_array = analyse(filename)
     audits = Text(audit)
     counter = 0
-    for line in array[0]:
-        audits.insert(INSERT, line + " ex : " + array[0][counter]+'\n')
+    for line in audit_array:
+        audits.insert(INSERT,'column : '+ str(counter)+': ' + line +'\n')
         audits.pack()
         counter = counter + 1
-
     
         
 # windows
