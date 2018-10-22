@@ -1,6 +1,8 @@
 
 files_for_test/
 \.idea/
+toolbox_csv.pyproj
+toolbox_csv.sln
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
