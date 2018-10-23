@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 import os, os.path
-from library.control_csv.header_to_csv import header, analyse
-from library.convert_csv.sheets_to_csv import *
+from library.control_csv.header import *
+from library.control_csv.analysis import *
 
 def set_filename():
     file = askopenfilename()
