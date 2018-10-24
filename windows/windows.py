@@ -33,7 +33,7 @@ windows.title("Toolbox csv")
 windows.geometry("300x500+300+0")
 filename = StringVar(windows)
 label = Label(windows, text=filename)
-label.pack
+label.pack()
 
 # openButton
 FILETYPES = [ ("text files", "*.csv") ]

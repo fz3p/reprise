@@ -1,60 +1,64 @@
-
 import csv
-import sys
-from re import sub, search
 
 
 def analyse(path_filename): 
-    line_number= 0
+    line_number = 0
     array = []
     with open(path_filename.get()) as csvfile:
         line = csv.reader(csvfile, delimiter=';')
         for row in line:
-            array_cell = []
             if line_number != 0:
+                array_cell = []
                 for cell in row:
                     array_cell.append(cell)
-            array.append(array_cell)
+                array.append(array_cell)
             line_number = line_number + 1
-    array = treatement(array)
+    array = treatment(array)
     return array
 
 
-
-def treatement(array):
-    number_cell_in_line = len(array[1])
+def treatment(array):
     integer = 0
     string = 0
-   
-    for line in array:
+    analysis = []
+    nb_column: int = 0
+    total_column = len(array[0])
+    while nb_column < total_column:
         i = 0
-        while i < len(array[i]):
-            value = analyse_cell(array[1][i])
-            i += 1
+        for line in array:
+            value = analyse_cell(array[i][nb_column])
             if value == 0:
                 string += 1
-            elif value == 1: 
+            elif value == 1:
                 integer += 1
-             
-        percent_string = not_zero(string, array[i])
-        percent_integer= not_zero(string, array[i])
+            i += 1
+            # print(integer)
+            # print(string)
+        percent_string = not_zero(string, i)
+        percent_integer = not_zero(integer, i)
         to_return = "string : " + str(percent_string) + "%, integer : " + str(percent_integer) + "%"
-        analysis = []
         analysis.append(to_return)
+        nb_column += 1
     return analysis
 
 
+# review analyse cell
 def analyse_cell(value):
-    if isinstance(value,str):
+    print(value)
+    type_cell = ""
+    if isinstance(value, str):
         type_cell = 0
     elif isinstance(value, int):
         type_cell = 1
+    else:
+        print("not understand")
+    print(type_cell)
     return type_cell
 
-def not_zero(value, array):
+
+def not_zero(value, number_line):
     if value == 0:
         value = "empty"
     else:
-        value = (value /len(array)) * 100
+        value = (value / number_line) * 100
     return value
-    
