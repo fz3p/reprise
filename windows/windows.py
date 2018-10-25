@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
-from library import *
+from library.control_csv.analysis import analyse
+from library.control_csv.header import header
+
 
 def set_filename():
     file = askopenfilename()
@@ -8,33 +10,33 @@ def set_filename():
 
     # result
     array = header(filename)
-    results = Text(result)
+    results = Text(result, width=35)
     counter = 0
     for line in array[0]:
         results.insert(INSERT, line + " ex : " + array[1][counter]+'\n')
-        results.pack()
         counter = counter + 1
+    results.pack()
     
     # audit
     audit_array = analyse(filename)
-    audits = Text(audit)
+    audits = Text(audit, width=35)
     counter = 0
     for line in audit_array:
-        audits.insert(INSERT,'column : '+ str(counter)+' - ' + line +'\n')
-        audits.pack()
+        audits.insert(INSERT, 'column : ' + str(counter) + ' - ' + line + '\n')
         counter = counter + 1
+    audits.pack()
     
         
 # windows
 windows = Tk()
 windows.title("Toolbox csv")
-windows.geometry("300x500+300+0")
+windows.geometry("600x500+300+0")
 filename = StringVar(windows)
 label = Label(windows, text=filename)
 label.pack()
 
 # openButton
-FILETYPES = [ ("text files", "*.csv") ]
+FILETYPES = [("text files", "*.csv")]
 
 # menubar
 menubar = Menu(windows)
@@ -47,11 +49,11 @@ windows.config(menu=menubar)
 
 # result frame
 result = LabelFrame(windows, text="Column in array")
-result.pack(fill="both", expand="yes", padx=10, pady=10)
+result.pack(side=LEFT, fill="both", expand="yes", padx=10, pady=10)
 
 # audit frame
 audit = LabelFrame(windows, text="audit")
-audit.pack(fill="both", expand="yes", padx=10, pady=10)
+audit.pack(side=RIGHT, fill="both", expand="yes", padx=10, pady=10)
 
 
 windows.mainloop()
