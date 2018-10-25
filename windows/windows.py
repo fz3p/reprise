@@ -1,8 +1,6 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
-import os, os.path
-from library.control_csv.header import *
-from library.control_csv.analysis import *
+from library import *
 
 def set_filename():
     file = askopenfilename()
@@ -22,7 +20,7 @@ def set_filename():
     audits = Text(audit)
     counter = 0
     for line in audit_array:
-        audits.insert(INSERT,'column : '+ str(counter)+': ' + line +'\n')
+        audits.insert(INSERT,'column : '+ str(counter)+' - ' + line +'\n')
         audits.pack()
         counter = counter + 1
     

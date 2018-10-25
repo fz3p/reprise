@@ -18,47 +18,49 @@ def analyse(path_filename):
 
 
 def treatment(array):
-    integer = 0
-    string = 0
     analysis = []
     nb_column: int = 0
     total_column = len(array[0])
     while nb_column < total_column:
         i = 0
+        integer = 0
+        string = 0
+        empty = 0
         for line in array:
             value = analyse_cell(array[i][nb_column])
             if value == 0:
                 string += 1
             elif value == 1:
                 integer += 1
+            elif value == 2:
+                empty += 1
             i += 1
-            # print(integer)
-            # print(string)
         percent_string = not_zero(string, i)
         percent_integer = not_zero(integer, i)
-        to_return = "string : " + str(percent_string) + "%, integer : " + str(percent_integer) + "%"
+        percent_empty = not_zero(empty, i)
+        to_return = "string : {0}%, integer : {1}%, empty : {2}%".format(str(percent_string), str(percent_integer),
+                                                                         str(percent_empty))
         analysis.append(to_return)
         nb_column += 1
+    analysis.reverse()
     return analysis
 
 
 # review analyse cell
 def analyse_cell(value):
-    print(value)
-    type_cell = ""
-    if isinstance(value, str):
+    if not value:
+        type_cell = 2
+    elif value.isdigit():
         type_cell = 0
-    elif isinstance(value, int):
-        type_cell = 1
     else:
-        print("not understand")
-    print(type_cell)
+        type_cell = 1
     return type_cell
 
 
 def not_zero(value, number_line):
     if value == 0:
-        value = "empty"
+        value = 0
     else:
         value = (value / number_line) * 100
+    value = round(value, 2)
     return value
