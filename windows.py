@@ -1,7 +1,13 @@
+# coding: utf-8
+
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 from library.header import header
 from library.analyse import analyse
+
+def choose_file():
+    one_file = askopenfilename()
+    print(one_file)
 
 
 def set_filename():
@@ -36,6 +42,13 @@ windows.geometry("900x500+300+0")
 filename = StringVar(windows)
 label = Label(windows, text=filename)
 label.pack()
+
+# choose file
+fileselector = LabelFrame(windows)
+fileselector.pack(side=TOP, fill="both", expand="no")
+choosefile = Button(fileselector, text="choose file", command=choose_file)
+choosefile.pack(side=LEFT)
+pathfile = Text(fileselector)
 
 # openButton
 FILETYPES = [("text files", "*.csv")]
