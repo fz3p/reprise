@@ -38,8 +38,8 @@ def treatment(array):
         percent_string = not_zero(string, i)
         percent_integer = not_zero(integer, i)
         percent_empty = not_zero(empty, i)
-        to_return = "string : {0}%, integer : {1}%, empty : {2}%".format(str(percent_string), str(percent_integer),
-                                                                         str(percent_empty))
+        to_return = "str: {0}%, int : {1}%, empty : {2}%".format(str(percent_string), str(percent_integer),
+                                                                 str(percent_empty))
         analysis.append(to_return)
         nb_column += 1
     analysis.reverse()

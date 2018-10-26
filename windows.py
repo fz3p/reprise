@@ -10,19 +10,21 @@ def set_filename():
 
     # result
     array = header(filename)
-    results = Text(result, width=35)
+    results = Text(result, width=51)
     counter = 0
     for line in array[0]:
-        results.insert(INSERT, line + " ex : " + array[1][counter]+'\n')
+        example = array[1][counter]
+        example = example[:20]
+        results.insert(INSERT, line + " - ex : " + example +'\n')
         counter = counter + 1
     results.pack()
     
     # audit
     audit_array = analyse(filename)
-    audits = Text(audit, width=35)
+    audits = Text(audit, width=51)
     counter = 0
     for line in audit_array:
-        audits.insert(INSERT, 'column : ' + str(counter) + ' - ' + line + '\n')
+        audits.insert(INSERT, str(counter) + ' - ' + line + '\n')
         counter = counter + 1
     audits.pack()
     
@@ -30,7 +32,7 @@ def set_filename():
 # windows
 windows = Tk()
 windows.title("Toolbox csv")
-windows.geometry("600x500+300+0")
+windows.geometry("900x500+300+0")
 filename = StringVar(windows)
 label = Label(windows, text=filename)
 label.pack()
