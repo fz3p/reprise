@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
-from library import header, analyse
+from library.header import header
+from library.analyse import analyse
 
 
 def set_filename():
