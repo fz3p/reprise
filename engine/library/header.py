@@ -2,6 +2,7 @@ import csv
 import sys
 from re import search, sub
 
+
 def header(path_filename):
     line_number= 0
     diese = "# "

@@ -13,11 +13,11 @@ def analyse(path_filename):
                     array_cell.append(cell)
                 array.append(array_cell)
             line_number = line_number + 1
-    array = treatment(array)
+    array = treatment_line(array)
     return array
 
 
-def treatment(array):
+def treatment_line(array):
     analysis = []
     nb_column: int = 0
     total_column = len(array[0])
