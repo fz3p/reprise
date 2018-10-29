@@ -2,8 +2,8 @@
 
 from tkinter import *
 from tkinter.filedialog import askopenfilename
-from engine.library.header import header
-from engine.library.analyse import analyse
+from library.header import header
+from library.analyse import analyse
 
 
 def choose_file():
@@ -31,7 +31,7 @@ def execute_treatement():
 
     # audit
     audit_array = analyse(file_path)
-    audits = Text(audit, width=51, expand="yes")
+    audits = Text(audit, width=51)
     counter = 0
     for line in audit_array:
         audits.insert(INSERT, str(counter) + ' - ' + line + '\n')
