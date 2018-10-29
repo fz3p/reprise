@@ -4,7 +4,7 @@ import csv
 def analyse(path_filename): 
     line_number = 0
     array = []
-    with open(path_filename.get()) as csvfile:
+    with open(path_filename) as csvfile:
         line = csv.reader(csvfile, delimiter=';')
         for row in line:
             if line_number != 0:

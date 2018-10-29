@@ -1,6 +1,4 @@
 import csv
-import sys
-from re import search, sub
 
 
 def header(path_filename):
@@ -9,7 +7,7 @@ def header(path_filename):
     array = []
     array_first = []
     array_two = []
-    with open(path_filename.get()) as csvfile:
+    with open(path_filename) as csvfile:
         line = csv.reader(csvfile, delimiter=';')
         for row in line:
             column_number = 0
