@@ -2,7 +2,7 @@ import csv
 
 
 def header(path_filename):
-    line_number= 0
+    line_number = 0
     diese = "# "
     array = []
     array_first = []
